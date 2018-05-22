@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Kontrollsystem for Katrines Kafé</h1>
+
+  <p>Velkommen til kontrollsystemet for <em>Katrines Kafé</em></p>
+
+<h2>Meny:</h2>
+
+<table>
+  <tr>
+    <th>Navn</th>
+    <th>Pris</th>
+    <th>Antall solgt</th>
+    <th></th>
+  </tr>
+  <!-- oppretter en tabell med produktene -->
+  {% for i in products %}
+  <tr>
+    <td>{{i.productName}}</td>
+    <td>{{i.productPrice}}</td>
+    <td>{{i.numbersSold}}</td>
+    <!--legger inn slett-knapp -->
+    <td>
+      <form method="POST" action=" /delete/ "> {% csrf_token %}
+        <input type="hidden" name = "item_id" value="{{i.id}}"/>
+      <button class="btn btn-primary" type="submit">Slett</button>
+    </td>
+<!--<form method="POST" action=" /delete/{{ i.id }}/ "> {% csrf_token %} -->
+  </tr>
+  {% endfor %}
+</table>
+
+<h1><a href = ' /add/'> Legg til produkt </a></h1>
+
+
+{% endblock %}
