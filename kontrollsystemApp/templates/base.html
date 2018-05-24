@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  {% block title %}<title>Katrines Kafé</title>{% endblock %}
-  <meta charset="utf-8">
-
+<title> Katrines Kafé</title>
   <!-- Add additional CSS in static file -->
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
-
 <body>
-  {% block content %}{% endblock %}
+
+  <div class="top">
+    {% load static %}
+    <img src="{% static 'kontrollsystemApp/katrineLogo1.png' %}" width="250" height="120" alt="My image"/>
+  </div>
+
+  <div class="left">
+    <div class="sidebar">
+    <p><a href="{% url 'index' %}" class="buttonSidebar">Hjem</a></p>
+    <p><a href="{% url 'add' %}" class="buttonSidebar">Legg til</a></p>
+    <p><a href="{% url 'reset' %}" class="buttonSidebar">Nullstill</a></p>
+    </div>
+  </div>
+
+  <div class="main">
+    {% block content %}{% endblock %}
+  </div>
+
 </body>
 </html>

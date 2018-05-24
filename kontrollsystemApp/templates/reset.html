@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>NULLSTILL PENGER I KASSA</h1>
+<div class="box">
+    <p><i>Ved å trykke på "Nullstill" blir penger i kassa satt til 0 kr, dette kan ikke angres.</i></p>
+    <form method="POST" action="confirmed/ "> {% csrf_token %}
+      <button class="btn" type="submit">Nullstill</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -2,14 +2,18 @@
 
 {% block content %}
 
-<h1>Legg til produkt</h1>
+<h1>LEGG TIL PRODUKT</h1>
+
+<div class="box">
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <div class="form-actions">
-      <button type="submit">Send</button>
-    </div>
-</form>
+    <strong>Produktnavn:</strong><h id="name" type="text" class="input">{{ form.name }}</li>
+    <strong>Pris:</strong><h id="price" type="number" class="input">{{ form.price }}</li>
+    <p><i>Skriv inn produktnavn og pris på produktet du ønsker å legge inn.</i></p>
+    <button class="btn" type="submit">Legg til</button>
 
-  <a href = '{{ '/' }}'> Cancel </a>
+</form>
+</div>
+
+
 {% endblock %}
