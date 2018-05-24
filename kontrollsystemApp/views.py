@@ -45,7 +45,7 @@ def reset(request):
 
 #Buys the product with id equivalent to the attribute of the function,
 #calls the product-object's method buy() to handle the counter for the product and the total cash
-def kjopProdukt(request, id):
+def buyProduct(request, id):
     originalObj = get_object_or_404(Product, id=id)
     originalObj.buy()
     return HttpResponseRedirect(('/'))
